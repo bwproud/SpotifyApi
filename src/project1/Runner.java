@@ -39,17 +39,17 @@ public class Runner implements ActionListener{
 	
 	public Runner() throws IOException, WebApiException{
 		api= Setup.clientCredentialsAPI();
-		//List<Track> topSongs = api.getTopTracks().build().get();
-		//for(Track s: topSongs){
-		//	System.out.println(s.getName());
-		//}
-		//System.out.println("test over");
+//		List<Track> topSongs = api.getTopTracks().build().get();
+//		for(Track s: topSongs){
+//			System.out.println(s.getName());
+//		}
+//		System.out.println("test over");
 		//printSongs(findHiddenFiles());
 		//System.out.println();
+		//System.out.println(api.getArtist("4KWTAlx2RvbpseOGMEmROg").build().get().getName());
 		p = new Playlists(api,"coolwaves12", "7fC5yLklob2LMkCZCt2wRQ");
-		//p = new Playlists(api,"bncolucci", "21gdU84enJRN40pcDE3xxF");
-		p.printSongs(p.playlist);
-		DevLogToolGUI();
+		p.getSongsInGenre("folk");
+//		DevLogToolGUI();
 	}
 
 	

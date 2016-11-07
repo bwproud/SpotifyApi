@@ -30,6 +30,31 @@ public class Playlists {
 		playlist=getSongs(user, pid);
 	}
 	
+	public static List<Artist> getSongsInGenre(String genre) throws IOException, WebApiException{
+		List<Artist> artists=new ArrayList<>();
+		for(Track song:playlist){
+			//System.out.println(song.getName()+" "+song.getArtists());
+			try{
+			Artist artist = api.getArtist(song.getArtists().get(0).getId()).build().get();
+			}catch(Exception e){
+				String artistName=song.getArtists().get(0).getName(); 
+				String artistId=song.getArtists().get(0).getId();
+				//String name= api.getArtist(artistId).build().get().getName();
+				System.out.println(artistName+" "+artistId);
+			}
+			//System.out.println("This artist's name is " + artist.getName()+" and their genre's are"+ artist.getGenres());
+//			for(String g: artist.getGenres()){
+//				if(g.indexOf(genre)!=-1){
+//					//System.out.println(artist.getName());
+//					artists.add(artist);
+//					break;
+//				}
+//			}
+			//System.out.println();
+		}
+		System.out.println(artists.size());
+		return artists;
+	}
 	public static List<Track> getSongs(String user, String pid) throws IOException, WebApiException{
 		Playlist playlist=null;
 		try{
