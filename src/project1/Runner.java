@@ -26,6 +26,9 @@ import com.wrapper.spotify.methods.*;
 import com.wrapper.spotify.methods.authentication.*;
 import com.wrapper.spotify.models.*;
 
+/**
+* Open up GUI to interact with playlist class
+*/
 public class Runner implements ActionListener{
 	private Api api; 
     private JFrame frame;
@@ -33,23 +36,14 @@ public class Runner implements ActionListener{
     private JScrollPane spOutput;
     private JButton printSongs, intersect,findDupSongs, topArtists, numSongs, changePlaylist;
     private Playlists p;
-	public static void main(String[] args) throws IOException, WebApiException {
+	public static void main(String[] args) throws IOException, WebApiException, InterruptedException {
 		Runner r = new Runner();
 	}
 	
-	public Runner() throws IOException, WebApiException{
+	public Runner() throws IOException, WebApiException, InterruptedException{
 		api= Setup.clientCredentialsAPI();
-//		List<Track> topSongs = api.getTopTracks().build().get();
-//		for(Track s: topSongs){
-//			System.out.println(s.getName());
-//		}
-//		System.out.println("test over");
-		//printSongs(findHiddenFiles());
-		//System.out.println();
-		//System.out.println(api.getArtist("4KWTAlx2RvbpseOGMEmROg").build().get().getName());
 		p = new Playlists(api,"coolwaves12", "7fC5yLklob2LMkCZCt2wRQ");
-		p.getSongsInGenre("folk");
-//		DevLogToolGUI();
+		DevLogToolGUI();
 	}
 
 	
